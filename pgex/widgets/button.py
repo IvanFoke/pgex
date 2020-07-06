@@ -1,10 +1,12 @@
 from pgex.widgets.text import Text
 from pygame import draw, mouse, mixer, time
+from pgex.parameters.colors import colors
 
 
 class Button:
-    def __init__(self, width, height, text, font_path, font_size, sound_path=None, font_color=(0, 0, 0),
-                 inactive_bg=(13, 162, 58), active_bg=(20, 180, 58), pressed_bg=(32, 215, 58), action=lambda: None):
+    def __init__(self, width, height, text, font_path, font_size, sound_path=None, font_color=colors["black"],
+                 inactive_bg=colors["dark_green"], active_bg=colors["green"], pressed_bg=colors["light_green"],
+                 action=lambda: None):
         self.width = width
         self.height = height
         self.text = Text(text, font_path, font_size, font_color)

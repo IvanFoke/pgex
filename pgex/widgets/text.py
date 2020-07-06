@@ -1,8 +1,9 @@
 from pygame import font, draw
+from pgex.parameters.colors import colors
 
 
 class Text:
-    def __init__(self, text, font_path, font_size=20, font_color=(0, 0, 0), bg_color=None, border_width=1):
+    def __init__(self, text, font_path, font_size=20, font_color=colors["black"], bg_color=None, border_width=1):
         self.text = text
         self.font_size = font_size
         self.font_name = font_path
@@ -11,13 +12,16 @@ class Text:
         self.border_width = border_width
 
     def get_rect(self):
-        font_type = font.Font(self.font_name, self.font_size)
-        text = font_type.render(self.text, True, self.font_color)
+        text = self._render_text()
         return text.get_rect()
 
-    def draw(self, screen, coordinates):
+    def _render_text(self):
         font_type = font.Font(self.font_name, self.font_size)
         text = font_type.render(self.text, True, self.font_color)
+        return text
+
+    def draw(self, screen, coordinates):
+        text = self._render_text()
         text_rect = text.get_rect()
 
         if self.bg_color:

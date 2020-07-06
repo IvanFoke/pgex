@@ -4,7 +4,7 @@ import pygame as pg
 
 
 class Entry:
-    def __init__(self, width, height, text, font_path, font_size=20, font_color=colors["black"], centralized=False):
+    def __init__(self, width, height, font_path, font_size=20, font_color=colors["black"], text="", centralized=False):
         self.width = width
         self.height = height
         self._text = Text(text, font_path, font_size, font_color)

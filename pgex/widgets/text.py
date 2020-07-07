@@ -3,7 +3,9 @@ from pgex.parameters.colors import colors
 
 
 class Text:
-    """ Widget that draws text on a screen """
+    """ Widget that draws text on a screen
+    Text of the widget can be accessed or modified through a text property
+    """
     def __init__(self, text, font_path, font_size=20, font_color=colors["black"], bg_color=None, border_width=1):
         """
         :param text: str

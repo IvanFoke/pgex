@@ -4,7 +4,9 @@ import pygame as pg
 
 
 class Entry:
-    """ Widget that draws entry field on a screen """
+    """ Widget that draws entry field on a screen
+    Text of the Entry can be accessed or modified through a text property
+    """
     def __init__(self, width, height, font_path, font_size=20, font_color=colors["black"], text="", centralized=False):
         """
 

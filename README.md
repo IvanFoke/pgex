@@ -11,7 +11,7 @@ pip install pgex
 ```
 
 ## Links
-Link on PyPI: https://pypi.org/project/pgex/
+Link on PyPI: https://pypi.org/project/pgex/ \
 GitHub Repository: https://github.com/IvanFoke/pgex
 
 ## Usage

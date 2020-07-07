@@ -4,6 +4,13 @@
 ## Desription
 Pgex is a package that will help you to create games with PyGame easier and more convenient. There is no longer any need to register the functionality of text fields, buttons and other widgets each time. Everything has already been done for you! 
 
+## Installation
+Package is uploaded on PyPI and can be downloaded through
+```bash
+pip install pgex
+```
+Link on PyPI: https://pypi.org/project/pgex/
+
 ## Usage
 **1. Text creation**\
 Before you start creating any project on PyGame, you must initialize it. It is standard commands like screen creation and title setting.\

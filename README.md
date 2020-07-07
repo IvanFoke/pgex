@@ -13,7 +13,7 @@ Link on PyPI: https://pypi.org/project/pgex/
 
 ## Usage
 **1. Text creation**\
-Before you start creating any project on PyGame, you must initialize it. It is standard commands like screen creation and title setting.\
+Before you start creating any project on PyGame, you must initialize it. Use standard commands like screen creation and title setting.\
 All widgets in pgex are stored in _pgex.widgets_. For example, let's import Text widget.
 Pgex also describes a large number of different colors. They can be found in _pgex.parameters_.
 ```python
@@ -44,10 +44,10 @@ As you can see in the example, text widget is created with Text class. First 3 a
 
 ![python_RdNLxTmrXB](https://user-images.githubusercontent.com/58694429/86750802-e296d180-c046-11ea-84c8-2f6855004769.png)
 
-**2. Button that getting a value of Entry field**\
+**2. A Button that gets a value of an Entry field**\
 Button and Entry are another widgets from pgex. They also can be imported from _pgex.widgets_.\
 A distinctive feature of the Button is the passing of a function into it through the _action_ argument, which will be called when the user clicks on it.\
-The Entry requires the passing of PyGame events. This allows you to intercept the data entered in the field. Field supports backspace key. To stop entering the text in field, you can press escape, enter, or simply click the left mouse button outside the field.
+The Entry requires the passing of PyGame events. This allows widget to intercept the data entered in the field. Field supports backspace key. To stop entering the text in field, you can press escape, enter, or simply click the left mouse button outside the field.
 
 ```python
 from pgex.widgets import Button

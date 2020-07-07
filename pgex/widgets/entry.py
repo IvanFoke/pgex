@@ -4,7 +4,25 @@ import pygame as pg
 
 
 class Entry:
+    """ Widget that draws entry field on a screen """
     def __init__(self, width, height, font_path, font_size=20, font_color=colors["black"], text="", centralized=False):
+        """
+
+        :param width: int
+            Width of a entry drawn on a screen
+        :param height: int
+            Height of a entry drawn on a screen
+        :param font_path: str
+            Path to font which will be used to draw text
+        :param font_size: int
+            Size of font of a text on a screen
+        :param font_color: tuple (int, int, int)
+             Color of a text on a screen
+        :param text: str
+            Initial text to be drawn on an entry field
+        :param centralized: bool
+            If True - text will be printed in a center of button
+        """
         self.width = width
         self.height = height
         self._text = Text(text, font_path, font_size, font_color)
@@ -15,6 +33,18 @@ class Entry:
         self.centralized = centralized
 
     def draw(self, screen, coordinates, pg_events):
+        """ Draw button widget on a screen with given coordinates (x, y)
+
+        If user started input by clicking inside entry - self._get_input begins controlling widget.
+        Method draws something like interaction with user. If mouse cursor hovers over entry - widget
+        would be highlighted.
+
+        :param screen: pygame screen
+        :param coordinates: tuple (int, int)
+            Coordinates (x, y) where entry widget should be drawn
+        :param pg_events: events from pygame.event.get()
+            All main events like pygame.QUIT should be handled outside this class
+        """
         if self.entering_text:
             self._get_input(screen, coordinates, pg_events)
             return
@@ -42,6 +72,18 @@ class Entry:
             self._text.draw(screen, text_coordinates)
 
     def _get_input(self, screen, coordinates, pg_events):
+        """ Getting input from entry field
+
+        Function takes unicodes of pressed buttons and inserts them in self._text attribute.
+        Backspace button erases last symbol.
+        Enter or Escape buttons stops getting input data.
+
+        :param screen: pygame screen
+        :param coordinates: tuple (int, int)
+            Coordinates (x, y) where entry widget should be drawn
+        :param pg_events: events from pygame.event.get()
+            All main events like pygame.QUIT should be handled outside this class
+        """
         x, y = coordinates
         text_coordinates = coordinates
         if self.centralized:
@@ -50,7 +92,7 @@ class Entry:
                                 y + self.height // 2 - text_rect.height // 2)
 
         pg.draw.rect(screen, colors["white"], self.input_rect)
-        pg.draw.rect(screen, colors["black"], (x, y, self.width, self.height), 3)
+        pg.draw.rect(screen, colors["black"], (x, y, self.width, self.height), 5)
         self._text.draw(screen, text_coordinates)
 
         for event in pg_events:
@@ -79,4 +121,11 @@ class Entry:
         self._text.text = text
 
     def _is_ascii(self, s):
+        """ Checks if string consists only from printable ASCII symbols
+
+        :param s: str
+            String to be checked
+        :return: bool
+            True if string consists of ASCII symbols. Otherwise False.
+        """
         return all(ord(c) < 128 for c in s)

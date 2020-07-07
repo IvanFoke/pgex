@@ -9,7 +9,10 @@ Package is uploaded on PyPI and can be downloaded through
 ```bash
 pip install pgex
 ```
+
+## Links
 Link on PyPI: https://pypi.org/project/pgex/
+GitHub Repository: https://github.com/IvanFoke/pgex
 
 ## Usage
 **1. Text creation**\

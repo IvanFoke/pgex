@@ -60,7 +60,7 @@ class Entry:
                     return
                 elif event.key == pg.K_BACKSPACE:
                     self._text.text = self._text.text[:-1]
-                elif event.unicode.isascii():
+                elif self._is_ascii(event.unicode):
                     self._text.text = self._text.text + event.unicode
                     text_rect = self._text.get_rect()
                     if text_rect.width >= self.input_rect.width:
@@ -77,3 +77,6 @@ class Entry:
     @text.setter
     def text(self, text):
         self._text.text = text
+
+    def _is_ascii(self, s):
+        return all(ord(c) < 128 for c in s)

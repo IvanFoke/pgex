@@ -35,7 +35,7 @@ while game:
 
 As you can see in the example, text widget is created with Text class. First 3 arguments are the text, the path to a font and the font size. Result of the work of this program:
 
-~~My image~~
+![python_RdNLxTmrXB](https://user-images.githubusercontent.com/58694429/86750802-e296d180-c046-11ea-84c8-2f6855004769.png)
 
 **2. Button that getting a value of Entry field**\
 Button and Entry are another widgets from pgex. They also can be imported from _pgex.widgets_.\
@@ -71,8 +71,8 @@ while True:
     entry.draw(screen, (100, 200), events)      
 ```
 
-Result:
-~~MyImage~~
+Result:\
+![python_cr2iYoWarZ](https://user-images.githubusercontent.com/58694429/86750792-e165a480-c046-11ea-8d28-22c2d5885678.png)
 
 
 Full example can be seen in examples folder.\

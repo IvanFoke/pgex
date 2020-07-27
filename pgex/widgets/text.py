@@ -21,7 +21,7 @@ class Text:
         :param border_width: int
             width of a border of background
         """
-        self._text = text
+        self._text = str(text)
         self.font_size = font_size
         self.font_name = font_path
         self.font_color = font_color
@@ -44,7 +44,7 @@ class Text:
 
     @text.setter
     def text(self, text):
-        self._text = text
+        self._text = str(text)
 
     def draw(self, screen, coordinates):
         """ Draw text widget on a screen with given coordinates

@@ -24,13 +24,23 @@ class AnimationIterator:
 
 
 class SimpleAnimation:
-    def __init__(self, images, frames_per_image=1):
+    def __init__(self, images, coordinates=None, frames_per_image=1):
         self._animation_iter = AnimationIterator(images, frames_per_image)
+        if coordinates:
+            self.coordinates = coordinates
 
-    def draw(self, screen, coordinates):
-        screen.blit(next(self._animation_iter), coordinates)
+    def draw(self, screen, coordinates=None):
+        if coordinates:
+            screen.blit(next(self._animation_iter), coordinates)
+        elif self.coordinates:
+            screen.blit(next(self._animation_iter), self.coordinates)
+        else:
+            raise IndexError("No coordinates given to SimpleAnimation")
 
     def __str__(self):
+        if self.coordinates:
+            return f"SimpleAnimation(size: {self._animation_iter.size}," \
+                    f"coordinates: {self.coordinates} frames per image: {self._animation_iter.fpi})"
         return f"SimpleAnimation(size: {self._animation_iter.size}, frames per image: {self._animation_iter.fpi})"
 
 

@@ -79,3 +79,6 @@ class Button:
         else:
             draw.rect(screen, self.inactive_bg, button_rect)
             self.text.draw(screen, text_coordinates)
+
+    def __str__(self):
+        return f"Button(text={self.text.text}, size=({self.width}x{self.height}))"

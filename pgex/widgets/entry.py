@@ -131,3 +131,6 @@ class Entry:
             True if string consists of ASCII symbols. Otherwise False.
         """
         return all(ord(c) < 128 for c in s)
+
+    def __str__(self):
+        return f"Entry(text={self.text.text}, size=({self.width}x{self.height}))"

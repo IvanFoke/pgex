@@ -61,3 +61,6 @@ class Text:
                       self.border_width)
 
         screen.blit(text, coordinates)
+
+    def __str__(self):
+        return f"Text(text={self._text})"

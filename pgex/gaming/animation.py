@@ -27,11 +27,11 @@ class SimpleAnimation:
     def __init__(self, images, frames_per_image=1):
         self._animation_iter = AnimationIterator(images, frames_per_image)
 
-    # def draw(self, screen, coordinates):
-    #     screen.blit()
+    def draw(self, screen, coordinates):
+        screen.blit(next(self._animation_iter), coordinates)
 
 
-if __name__ == "__main__":
-    i = AnimationIterator((1, 2, 3), 2)
-    for x in i:
-        print(x)
+# if __name__ == "__main__":
+#     i = AnimationIterator((1, 2, 3), 2)
+#     for x in i:
+#         print(x)

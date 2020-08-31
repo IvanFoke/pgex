@@ -30,6 +30,9 @@ class SimpleAnimation:
     def draw(self, screen, coordinates):
         screen.blit(next(self._animation_iter), coordinates)
 
+    def __str__(self):
+        return f"SimpleAnimation(size: {self._animation_iter.size}, frames per image: {self._animation_iter.fpi})"
+
 
 # if __name__ == "__main__":
 #     i = AnimationIterator((1, 2, 3), 2)

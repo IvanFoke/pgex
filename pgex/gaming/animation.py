@@ -53,7 +53,7 @@ class SimpleAnimation:
 
     def draw(self, screen, coordinates=None):
         if coordinates:
-            self.coordinates = coordinates
+            self.coordinates = tuple(coordinates)
             screen.blit(next(self._animation_iter), coordinates)
         elif self.coordinates and None not in self.coordinates:
             screen.blit(next(self._animation_iter), self.coordinates)

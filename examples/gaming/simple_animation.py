@@ -32,6 +32,9 @@ class PgEx:
             self.screen.fill(colors["light_blue"])
             self.bug_animation.draw(self.screen)
 
+            self.bug_animation.x += 1
+            self.bug_animation.y += 1
+
             pg.display.update()
             self.clock.tick(30)
         pg.quit()

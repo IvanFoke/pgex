@@ -29,10 +29,33 @@ class SimpleAnimation:
         if coordinates:
             self.coordinates = coordinates
 
+    @property
+    def x(self):
+        return self.coordinates[0] if self.coordinates else None
+
+    @x.setter
+    def x(self, x):
+        if self.coordinates:
+            self.coordinates = (x, self.coordinates[1])
+        else:
+            self.coordinates = (x, None)
+
+    @property
+    def y(self):
+        return self.coordinates[0] if self.coordinates else None
+
+    @y.setter
+    def y(self, y):
+        if self.coordinates:
+            self.coordinates = (self.coordinates[0], y)
+        else:
+            self.coordinates = (None, y)
+
     def draw(self, screen, coordinates=None):
         if coordinates:
+            self.coordinates = coordinates
             screen.blit(next(self._animation_iter), coordinates)
-        elif self.coordinates:
+        elif self.coordinates and None not in self.coordinates:
             screen.blit(next(self._animation_iter), self.coordinates)
         else:
             raise IndexError("No coordinates given to SimpleAnimation")

@@ -19,7 +19,8 @@ class AnimatedSprite:
         self.up_animation = AnimationIterator(up_images, frames_per_image) if up_images else self.stay_animation
         self.down_animation = AnimationIterator(down_images, frames_per_image) if down_images else self.stay_animation
 
-        self.image = next(self.stay_animation)
+        self.jump_mul = 1
+        self.jump_velocity = 5
 
     def stay(self, screen):
         self.surf.blit(next(self.stay_animation), (0, 0))
@@ -58,6 +59,10 @@ class AnimatedSprite:
             self.move_down(screen)
         else:
             self.stay(screen)
+
+    def jump(self):
+        # TODO: add jump with sprite
+        pass
 
     def collide_sprite(self, sprite):
         return self.rect.colliderect(sprite.rect)

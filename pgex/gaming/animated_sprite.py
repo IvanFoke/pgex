@@ -59,3 +59,15 @@ class AnimatedSprite:
         else:
             self.stay(screen)
 
+    def collide_sprite(self, sprite):
+        return self.rect.colliderect(sprite.rect)
+
+    def collide_rect(self, rect):
+        return self.rect.colliderect(rect)
+
+    def contains_sprite(self, sprite):
+        return self.rect.contains(sprite.rect)
+
+    def contains_rect(self, rect):
+        return self.rect.contains(rect)
+

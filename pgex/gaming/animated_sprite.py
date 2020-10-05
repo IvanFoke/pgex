@@ -22,7 +22,8 @@ class AnimatedSprite:
 
         self.jump_multiplier = 2
         self._current_jump_mul = self.jump_multiplier
-        self.jump_velocity = 5
+        self.jump_velocity = 7
+        self._current_jump_velocity = self.jump_velocity
         self.need_jump = False
 
     def draw(self, screen):
@@ -63,14 +64,14 @@ class AnimatedSprite:
 
     def jump(self):
         if self.need_jump:
-            force = int(0.5 * self._current_jump_mul * self.jump_velocity ** 2)
+            force = int(0.5 * self._current_jump_mul * self._current_jump_velocity ** 2)
             self.rect.y -= force
-            self.jump_velocity -= 1
-            if self.jump_velocity < 0:
+            self._current_jump_velocity -= 1
+            if self._current_jump_velocity < 0:
                 self._current_jump_mul = -self.jump_multiplier
-            if self.jump_velocity == -6:
+            if self._current_jump_velocity == -self.jump_velocity - 1:
                 self.need_jump = False
-                self.jump_velocity = 5
+                self._current_jump_velocity = self.jump_velocity
                 self._current_jump_mul = self.jump_multiplier
 
         self.surf.blit(next(self.jump_animation), (0, 0))

@@ -17,7 +17,7 @@ class PgEx:
         u_images = (pg.image.load(r"bee\bee_up_0.png").convert(), pg.image.load(r"bee\bee_up_1.png").convert())
         d_images = (pg.image.load(r"bee\bee_down_0.png").convert(), pg.image.load(r"bee\bee_down_1.png").convert())
 
-        self.bug = AnimatedSprite((45, 45), (200, 400), 3, 3, (d_images[0],), l_images, r_images, u_images, d_images,
+        self.bug = AnimatedSprite((200, 400), 3, 3, (d_images[0],), l_images, r_images, u_images, d_images,
                                   None, colors["black"], 3)
 
     def handle_events(self, events):

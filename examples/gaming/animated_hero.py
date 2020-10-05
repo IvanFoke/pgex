@@ -17,7 +17,7 @@ class PgEx:
         u_images = (pg.image.load(r"bee\bee_up_0.png").convert(), pg.image.load(r"bee\bee_up_1.png").convert())
         d_images = (pg.image.load(r"bee\bee_down_0.png").convert(), pg.image.load(r"bee\bee_down_1.png").convert())
 
-        self.bug = AnimatedSprite((200, 400), 3, 3, (d_images[0],), l_images, r_images, u_images, d_images,
+        self.bee = AnimatedSprite((200, 400), 3, 3, (d_images[0],), l_images, r_images, u_images, d_images,
                                   None, colors["black"], 3)
 
     def handle_events(self, events):
@@ -31,18 +31,18 @@ class PgEx:
             self.handle_events(events)
 
             self.screen.fill(colors["light_blue"])
-            self.bug.move(up=False, down=False)
+            self.bee.move(up=False, down=False)
 
             keys = pg.key.get_pressed()
             if keys[pg.K_SPACE]:
-                self.bug.need_jump = True
-            if self.bug.need_jump:
-                self.bug.jump()
+                self.bee.need_jump = True
+            if self.bee.need_jump:
+                self.bee.jump()
 
-            if self.bug.right() < 0:
-                self.bug.left(800)
+            if self.bee.right() < 0:
+                self.bee.left(800)
 
-            self.bug.draw(self.screen)
+            self.bee.draw(self.screen)
 
             pg.display.update()
             self.clock.tick(30)

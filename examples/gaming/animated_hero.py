@@ -31,15 +31,12 @@ class PgEx:
             self.handle_events(events)
 
             self.screen.fill(colors["light_blue"])
-            self.bug.stay()
+            # self.bug.stay()
+            self.bug.move()
 
             keys = pg.key.get_pressed()
             if keys[pg.K_SPACE]:
                 self.bug.need_jump = True
-            if keys[pg.K_RIGHT]:
-                self.bug.move_right()
-            if keys[pg.K_LEFT]:
-                self.bug.move_left()
             if self.bug.need_jump:
                 self.bug.jump()
 

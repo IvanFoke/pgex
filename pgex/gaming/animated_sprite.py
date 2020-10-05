@@ -49,18 +49,18 @@ class AnimatedSprite:
         self.surf.blit(next(self.down_animation), (0, 0))
 
     def move(self, keys=None):
+        self.stay()
+
         if keys is None:
             keys = pg.key.get_pressed()
-        if keys[pg.K_LEFT]:
+        if keys[pg.K_LEFT] or keys[pg.K_a]:
             self.move_left()
-        elif keys[pg.K_RIGHT]:
+        if keys[pg.K_RIGHT] or keys[pg.K_d]:
             self.move_right()
-        elif keys[pg.K_UP]:
+        if keys[pg.K_UP] or keys[pg.K_w]:
             self.move_up()
-        elif keys[pg.K_DOWN]:
+        if keys[pg.K_DOWN] or keys[pg.K_s]:
             self.move_down()
-        else:
-            self.stay()
 
     def jump(self):
         if self.need_jump:

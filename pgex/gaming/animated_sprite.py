@@ -15,7 +15,8 @@ class AnimatedSprite:
 
         self.stay_animation = AnimationIterator(stay_images, frames_per_image)
         self.left_animation = AnimationIterator(left_images, frames_per_image) if left_images else self.stay_animation
-        self.right_animation = AnimationIterator(right_images, frames_per_image) if right_images else self.stay_animation
+        self.right_animation = AnimationIterator(right_images,
+                                                 frames_per_image) if right_images else self.stay_animation
         self.up_animation = AnimationIterator(up_images, frames_per_image) if up_images else self.stay_animation
         self.down_animation = AnimationIterator(down_images, frames_per_image) if down_images else self.stay_animation
         self.jump_animation = AnimationIterator(jump_images, frames_per_image) if jump_images else self.stay_animation
@@ -76,6 +77,41 @@ class AnimatedSprite:
 
         self.surf.blit(next(self.jump_animation), (0, 0))
 
+    def x(self, val=None):
+        if not val:
+            return self.rect.x
+        self.rect.x = val
+
+    def y(self, val=None):
+        if not val:
+            return self.rect.y
+        self.rect.y = val
+
+    def left(self, val=None):
+        if not val:
+            return self.rect.left
+        self.rect.left = val
+
+    def right(self, val=None):
+        if not val:
+            return self.rect.right
+        self.rect.right = val
+
+    def top(self, val=None):
+        if not val:
+            return self.rect.top
+        self.rect.top = val
+
+    def bottom(self, val=None):
+        if not val:
+            return self.rect.bottom
+        self.rect.bottom = val
+
+    def center(self, val=None):
+        if not val:
+            return self.rect.center
+        self.rect.center = val
+
     def collide_sprite(self, sprite):
         return self.rect.colliderect(sprite.rect)
 
@@ -87,4 +123,3 @@ class AnimatedSprite:
 
     def contains_rect(self, rect):
         return self.rect.contains(rect)
-

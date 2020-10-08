@@ -5,7 +5,7 @@ import pygame as pg
 class AnimatedSprite:
     def __init__(self, coordinates, speed_x, speed_y, stay_images, left_images=None, right_images=None,
                  up_images=None, down_images=None, jump_images=None, transparent_color=None, frames_per_image=1):
-        self.surf = pg.Surface(stay_images[0].get_size())
+        self.surf = pg.Surface(stay_images[0].get_size(), pg.SRCALPHA, 32)
         if transparent_color:
             self.surf.set_colorkey(transparent_color)
         self.rect = self.surf.get_rect()

@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="pgex",
-    version="0.3.1",
+    version="0.4.1",
     author="Ivan Foke",
     author_email="ivan.foke@gmail.com",
     description="A Python PyGame package extension",

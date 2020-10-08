@@ -59,18 +59,18 @@ class BaseSprite:
     def is_out_of_screen(self, w, h, everywhere=False, left=False, right=False, up=False, down=False):
         if (everywhere or left) and self.rect.right < 0:
             return True
-        if (everywhere or right) and self.rect.x > w:
+        if (everywhere or right) and self.rect.left > w:
             return True
         if (everywhere or up) and self.rect.bottom < 0:
             return True
-        if (everywhere or down) and self.rect.y > h:
+        if (everywhere or down) and self.rect.right > h:
             return True
         return False
 
     def collides_screen_border(self, w, h, everywhere=False, left=False, right=False, up=False, down=False):
-        if (everywhere or left) and self.rect.x == 0:
+        if (everywhere or left) and self.rect.left == 0:
             return True
-        if (everywhere or right) and self.rect.left == w:
+        if (everywhere or right) and self.rect.right == w:
             return True
         if (everywhere or up) and self.rect.top == 0:
             return True

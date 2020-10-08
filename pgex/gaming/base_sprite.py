@@ -61,9 +61,9 @@ class BaseSprite:
             return True
         if (everywhere or right) and self.rect.x > w:
             return True
-        if (everywhere or down) and self.rect.bottom < 0:
+        if (everywhere or up) and self.rect.bottom < 0:
             return True
-        if (everywhere or up) and self.rect.y > h:
+        if (everywhere or down) and self.rect.y > h:
             return True
         return False
 

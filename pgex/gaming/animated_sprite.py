@@ -9,7 +9,7 @@ class AnimatedSprite:
         if transparent_color:
             self.surf.set_colorkey(transparent_color)
         self.rect = self.surf.get_rect()
-        self.rect.center = coordinates
+        self.rect.topleft = coordinates
         self.speed_x = speed_x
         self.speed_y = speed_y
 

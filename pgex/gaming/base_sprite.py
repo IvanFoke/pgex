@@ -56,6 +56,17 @@ class BaseSprite:
                 self._current_jump_velocity = self.jump_velocity
                 self._current_jump_mul = self.jump_multiplier
 
+    def is_out_of_screen(self, w, h, everywhere=False, left=False, right=False, up=False, down=False):
+        if (everywhere or left) and self.rect.right < 0:
+            return True
+        if (everywhere or right) and self.rect.x > w:
+            return True
+        if (everywhere or down) and self.rect.bottom < 0:
+            return True
+        if (everywhere or up) and self.rect.y > h:
+            return True
+        return False
+
     def x(self, val=None):
         if not val:
             return self.rect.x

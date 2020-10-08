@@ -34,8 +34,10 @@ class PgEx:
             if self.bee.need_jump:
                 self.bee.jump()
 
-            if self.bee.right() < 0:
-                self.bee.left(800)
+            if self.bee.is_out_of_screen(800, 600, left=True):
+                self.bee.left(800 - 1)
+            elif self.bee.is_out_of_screen(800, 600, right=True):
+                self.bee.right(0 + 1)
 
             self.bee.draw(self.screen)
 

@@ -68,13 +68,15 @@ class BaseSprite:
         return False
 
     def collides_screen_border(self, w, h, everywhere=False, left=False, right=False, up=False, down=False):
-        if (everywhere or left) and self.rect.left == 0:
+        # my_width, my_height = self.surf.get_size()[0]
+
+        if (everywhere or left) and self.rect.left <= 0:
             return True
-        if (everywhere or right) and self.rect.right == w:
+        if (everywhere or right) and self.rect.right >= w:
             return True
-        if (everywhere or up) and self.rect.top == 0:
+        if (everywhere or up) and self.rect.top <= 0:
             return True
-        if (everywhere or down) and self.rect.bottom == h:
+        if (everywhere or down) and self.rect.bottom >= h:
             return True
         return False
 
